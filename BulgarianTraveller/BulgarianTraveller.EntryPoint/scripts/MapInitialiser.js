@@ -2,26 +2,34 @@ var map;
 var infowindow;
 var currentPos;
 
-var mapInitialiser = function initialize() {
+var visited = true;
+
+function initialize() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             currentPos = new google.maps.LatLng(position.coords.latitude,
                                                 position.coords.longitude);
 
-            map = new google.maps.Map(document.getElementById('map-canvas'), {
-                center: currentPos,
-                zoom: 13
-            });
+            //currentPos = new google.maps.LatLng(42.6509467, 23.37947029999998);
 
-            var request = {
-                location: currentPos,
-                radius: 350,
-                types: ['restaurant']
-            };
+            var mapElement = document.getElementById('map-canvas');
 
-            infowindow = new google.maps.InfoWindow();
-            var service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, callback);
+            if (mapElement) {
+                map = new google.maps.Map(document.getElementById('map-canvas'), {
+                                              center: currentPos,
+                                              zoom: 14
+                                          });
+
+                var request = {
+                    location: currentPos,
+                    radius: 350,
+                    types: ['restaurant']
+                };
+
+                infowindow = new google.maps.InfoWindow();
+                var service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, callback);
+            }
         });
     }
 

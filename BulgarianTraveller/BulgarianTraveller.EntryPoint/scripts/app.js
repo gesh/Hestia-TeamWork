@@ -1,4 +1,5 @@
 /// <reference path="scripts/MapInitialiser.js"/>
+/// <reference path="../kendo/js/jquery.min.js" />
 
 (function () {
 
@@ -31,22 +32,12 @@
       // Cordova will wait 5 very long seconds to do it for you.
       navigator.splashscreen.hide();
 
-      app = new kendo.mobile.Application(document.body, {
-        
-        // you can change the default transition (slide, zoom or fade)
-        transition: 'slide',
-        
-        // comment out the following line to get a UI which matches the look
-        // and feel of the operating system
-        skin: 'flat',
+      app = new kendo.mobile.Application(document.body, { transition: 'slide', skin: 'flat', initial: 'views/map.html' });
 
-        // the application needs to know which view to load first
-        initial: 'views/map.html'
-      });
+      initialize();
 
     }, false);
 
-    mapInitialiser();
 
 
 }());
