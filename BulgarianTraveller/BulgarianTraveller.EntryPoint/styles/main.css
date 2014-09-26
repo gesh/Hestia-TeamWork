@@ -68,7 +68,26 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 400px;
+    height: 300px;
+    margin-top:50px;
+}
+
+#destination-list {
+    float:left;
+    width:130px;
+    background-color:#5fb4ed;
+    color:#fff;
+}
+
+#radius-list {
+    float:right;
+    width:130px;
+    background-color:#5fb4ed;
+    color:#fff;
+}
+
+#theImg {
+    z-index:10000;
 }
 
 #map-search-wrap {

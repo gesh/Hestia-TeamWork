@@ -2,7 +2,7 @@ var map;
 var infowindow;
 var currentPos;
 
-var visited = true;
+var visited = false;
 
 function initialize() {
     if (navigator.geolocation) {
@@ -39,7 +39,7 @@ function initialize() {
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            if (visited) {
+            if (results[i].isVisited) {
                 createMarker(results[i], true)
             } else {
                 createMarker(results[i], false);
@@ -48,7 +48,7 @@ function callback(results, status) {
     }
 }
 
-function createMarker(place, visited) {
+function createMarker(place, isVisited) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
                                             map: map,
@@ -60,8 +60,10 @@ function createMarker(place, visited) {
     }
 
     google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(place.name + " - " + place.geometry.location.B);
+        infowindow.setContent(place.name);
+        prompt("You have visited " + place.name);
         infowindow.open(map, this);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+        marker.isVisited = true;
     });
 }

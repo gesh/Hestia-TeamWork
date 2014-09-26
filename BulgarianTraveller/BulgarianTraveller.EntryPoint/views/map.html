@@ -1,4 +1,28 @@
 <div data-role="view" data-title="Map" data-layout="main" data-model="APP.models.map">
-  <h1 data-bind="html: title"></h1>
-  <div id="map-canvas"></div>
+    
+    <ul data-role="listview" data-style="inset" data-layout="main" id="destination-list">
+        <li>
+            <select>
+                <option value="0" >Destination</option>
+                <option value="Second Option">Second Option</option>
+                <option value="Third Option">Third Option</option>
+                <option value="Fourth Option">Fourth Option</option>
+            </select>
+        </li>
+    </ul>
+    <ul data-role="listview" data-style="inset" data-layout="main" id="radius-list">
+
+        <li>
+            <select>
+                <option value="0">Radius</option>
+                <option value="Second Option"> 0-200</option>
+                <option value="Third Option">200-500</option>
+                <option value="Fourth Option">500-1000</option>
+            </select>
+        </li>
+    </ul>
+
+        <div id="map-canvas"></div>
+
 </div>
+
