@@ -1,28 +1,30 @@
-<div data-role="view" data-title="Map" data-layout="main" data-model="APP.models.map">
-    
-    <ul data-role="listview" data-style="inset" data-layout="main" id="destination-list">
+<div data-role="view" data-title="Map" data-layout="main" data-model="app.viewmodels.map">
+
+    <ul data-role="listview" data-layout="main" id="destination-list">
         <li>
             <select>
-                <option value="0" >Destination</option>
-                <option value="Second Option">Second Option</option>
-                <option value="Third Option">Third Option</option>
-                <option value="Fourth Option">Fourth Option</option>
+                <option value="">Destination</option>
+                <option value="museum">Museums</option>
+                <option value="church">Churches</option>
+                <option value="zoo">Zoos</option>
             </select>
         </li>
     </ul>
-    <ul data-role="listview" data-style="inset" data-layout="main" id="radius-list">
-
-        <li>
-            <select>
+    <ul data-role="listview"data-layout="main" id="radius-list">
+        <li >
+            <select style="padding-right:10%; font-size:1.1em;">
                 <option value="0">Radius</option>
-                <option value="Second Option"> 0-200</option>
-                <option value="Third Option">200-500</option>
-                <option value="Fourth Option">500-1000</option>
+                <option value="50000">0-50km</option>
+                <option value="100000">50-100km</option>
+                <option value="200000">100-200km</option>
+                <option value="300000">200-300km</option>
             </select>
         </li>
     </ul>
 
-        <div id="map-canvas"></div>
+    <button data-role="button" style="font-size: 1.2em; width:48%">Camera</button>
+    <button data-role="button" style="font-size: 1.2em; width:48%">Gallery</button>
 
+    <div data-bind="value: initialize" id="map-canvas"></div>
 </div>
 

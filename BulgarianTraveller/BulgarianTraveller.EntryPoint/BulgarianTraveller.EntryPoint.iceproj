@@ -68,7 +68,7 @@
     <Content Include="kendo\typescript\kendo.mobile.d.ts" />
     <Content Include="scripts\animateSplashScreen.js" />
     <Content Include="scripts\app.js" />
-    <Content Include="scripts\MapInitialiser.js" />
+    <Content Include="scripts\view-models\map.js" />
     <Content Include="styles\main.css" />
     <Content Include="styles\images\appbuilder.png" />
     <Content Include="styles\images\appbuilder2x.png" />
@@ -86,7 +86,6 @@
     <Content Include="styles\images\sprite-weather2x.png" />
     <Content Include="views\contacts.html" />
     <Content Include="views\map.html" />
-    <Content Include="views\settings.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Resources\" />
@@ -106,6 +105,7 @@
     <Folder Include="kendo\typescript\" />
     <Folder Include="Plugins\" />
     <Folder Include="scripts\" />
+    <Folder Include="scripts\view-models\" />
     <Folder Include="styles\" />
     <Folder Include="styles\images\" />
     <Folder Include="views\" />

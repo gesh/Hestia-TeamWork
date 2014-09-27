@@ -1,43 +1,42 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-    <meta charset="utf-8" />
-    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
-    <link href="styles/main.css" rel="stylesheet" />
+    <head>
+        <title></title>
+        <meta charset="windows-1252" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
 
-    <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
 
+    </head>
+    <body>
 
+        <div data-role="layout" data-id="main">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </div>
 
-</head>
-<body>
- 
-    <div data-role="layout" data-id="main">
-        <div data-role="header">
-            <div data-role="navbar">
-                <span data-role="view-title"></span>
+            <div id="splash-screen">
+                <img src="styles/images/appbuilder.png" />
+            </div>
+            <!-- application views will be rendered here -->
+
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a href="views/map.html" data-icon="globe">Map</a>
+                    <a href="views/contacts.html" data-icon="contacts">Authors</a>
+                </div>
             </div>
         </div>
 
-        <div id="splash-screen"><img src="styles/images/appbuilder.png" /></div>
-        <!-- application views will be rendered here -->
-        
-        <div data-role="footer">
-            <div data-role="tabstrip">
-                <a href="views/map.html" data-icon="globe">Map</a>
-                <a href="views/contacts.html" data-icon="contacts">Authors</a>
-            </div>
-        </div>
-    </div>
+        <script src="scripts/animateSplashScreen.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+        <script src="scripts/view-models/map.js"></script>
+        <script src="scripts/app.js"></script>
 
-
-    <script src="scripts/animateSplashScreen.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-    <script src="scripts/MapInitialiser.js"></script>
-    <script src="scripts/app.js"></script>
-
-</body>
+    </body>
 </html>
