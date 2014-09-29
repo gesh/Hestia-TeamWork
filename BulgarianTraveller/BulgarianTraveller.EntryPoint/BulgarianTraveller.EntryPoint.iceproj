@@ -68,6 +68,10 @@
     <Content Include="kendo\typescript\kendo.mobile.d.ts" />
     <Content Include="scripts\animateSplashScreen.js" />
     <Content Include="scripts\app.js" />
+    <Content Include="scripts\connection-status.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\view-models\contacts.js" />
     <Content Include="scripts\view-models\map.js" />
     <Content Include="styles\main.css" />
     <Content Include="styles\images\appbuilder.png" />
@@ -85,6 +89,7 @@
     <Content Include="styles\images\sprite-weather.png" />
     <Content Include="styles\images\sprite-weather2x.png" />
     <Content Include="views\authors.html" />
+    <Content Include="views\contacts.html" />
     <Content Include="views\map.html" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,25 @@
+<div data-role="view" data-title="Contacts" data-layout="main" data-model="app.viewmodels.contacts">
+    <h2>Add Contact</h2>
+    <ul data-role="listview" data-style="inset">
+        
+        
+        <li>
+            <label>
+                Name
+                <input type="text" placeholder="Name.." id="contact-name"/>
+            </label>
+        </li>
+
+        <li>
+            <label>
+                Phone Number:
+                <input type="tel" placeholder="10 digits.." id="contact-number" />
+            </label>
+        </li>
+        
+
+    </ul>
+
+    <button data-role="button" id="contact-button" data-bind="click: addContact" style="font-size: 1.2em; width:99%">AddContact</button>
+
+</div>

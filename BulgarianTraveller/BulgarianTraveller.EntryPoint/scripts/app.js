@@ -10,6 +10,9 @@
             map: {
                 title: 'Map'
             },
+            contacts: {
+                title: 'Contacts'
+            },
             authors: {
                 title: 'Authors',
                 ds: new kendo.data.DataSource({
@@ -40,17 +43,11 @@
 
 	    	}
 
-		}, 1000);
+		}, 5000);
 
         app = new kendo.mobile.Application(document.body, { transition: 'slide', skin: 'flat', initial: 'views/map.html' });
 
 
     }, false);
-
-    document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
-
-	function onVolumeDownKeyDown() {
-    	app.map.zoom+=0.2;
-	}
-
+    
 }());
