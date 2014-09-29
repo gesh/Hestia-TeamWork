@@ -1,29 +1,31 @@
 <div data-role="view" data-title="Map" data-layout="main" data-model="app.viewmodels.map">
 
-    <!--<ul data-role="listview" data-layout="main" id="destination-list">
-        <li>
-            <select>
-                <option value="">Destination</option>
-                <option value="museum">Museums</option>
-                <option value="church">Churches</option>
-                <option value="zoo">Zoos</option>
-            </select>
-        </li>
-    </ul>
-    <ul data-role="listview" data-layout="main" id="radius-list" data-bind="events: {change: makeRequest}">
-        <li>
-            <select style="padding-right:10%; font-size:1.1em;">
-                <option value="0">Radius</option>
-                <option value="50000">0-50km</option>
-                <option value="100000">50-100km</option>
-                <option value="200000">100-200km</option>
-                <option value="300000">200-300km</option>
-            </select>
-        </li>
-    </ul>-->
+    <ul data-role="listview" data-style="inset">
+          <li class="menu-item">
+              <label>
+                  Place Type:
+                  <select>
+                      <option value="First Option">Museum</option>
+                      <option value="Second Option">Church</option>
+                      <option value="Third Option">Zoo</option>
+                  </select>
+              </label>
+          </li>
+          <li class="menu-item">
+              <label>
+                  Radius (km):
+                  <select id="dropdown">
+                      <option value="First Option">50</option>
+                      <option value="Second Option">100</option>
+                      <option value="Third Option">200</option>
+                      <option value="Fourth Option">500</option>
+                  </select>
+              </label>
+          </li>
+      </ul>
 
-    <button data-role="button" id="camera-button" data-bind="click: takeImage" style="font-size: 1.2em; width:48%">Camera</button>
-    <button data-role="button" style="font-size: 1.2em; width:48%">Gallery</button>
+
+    <button data-role="button" id="camera-button" data-bind="click: takeImage" style="font-size: 1.2em; width:99%">Camera</button>
 
     <div data-bind="value: initialize" id="map-canvas"></div>
 </div>
