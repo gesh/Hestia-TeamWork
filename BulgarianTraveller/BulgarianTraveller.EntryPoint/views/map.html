@@ -1,27 +1,27 @@
 <div data-role="view" data-title="Map" data-layout="main" data-model="app.viewmodels.map">
 
-    <ul data-role="listview" data-style="inset">
-          <li class="menu-item">
-              <label>
-                  Place Type:
-                  <select>
-                      <option value="First Option">Museum</option>
-                      <option value="Second Option">Church</option>
-                      <option value="Third Option">Zoo</option>
-                  </select>
-              </label>
-          </li>
-          <li class="menu-item">
-              <label>
-                  Radius (km):
-                  <select id="dropdown">
-                      <option value="First Option">50</option>
-                      <option value="Second Option">100</option>
-                      <option value="Third Option">200</option>
-                      <option value="Fourth Option">500</option>
-                  </select>
-              </label>
-          </li>
+    <ul data-role="listview" data-style="inset" >
+        <li class="menu-item" data-bind="click: makeRequest">
+            <label>
+                Place Type:
+                <select id="place-type">
+                    <option value="museum">Museum</option>
+                    <option value="church">Church</option>
+                    <option value="zoo">Zoo</option>
+                </select>
+            </label>
+        </li>
+        <li class="menu-item" data-bind="click: makeRequest">
+            <label>
+                Radius (km):
+                <select id="radius">
+                    <option value="50000">50</option>
+                    <option value="100000">100</option>
+                    <option value="200000">200</option>
+                    <option value="500000">500</option>
+                </select>
+            </label>
+        </li>
       </ul>
 
 

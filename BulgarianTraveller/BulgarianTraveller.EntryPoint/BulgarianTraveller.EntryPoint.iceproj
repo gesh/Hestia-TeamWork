@@ -84,7 +84,7 @@
     <Content Include="styles\images\search_active2x.png" />
     <Content Include="styles\images\sprite-weather.png" />
     <Content Include="styles\images\sprite-weather2x.png" />
-    <Content Include="views\contacts.html" />
+    <Content Include="views\authors.html" />
     <Content Include="views\map.html" />
   </ItemGroup>
   <ItemGroup>

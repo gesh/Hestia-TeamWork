@@ -5,7 +5,9 @@ var currentPos;
 var visited = false;
 var inpuType;
 var inputRadius;
-var currentPlace; 
+var currentPlace;
+var service;
+var request = request || {};
 
 function checkCurrentPlace(place){
     var result = window.localStorage.getItem(place.name);
@@ -89,18 +91,30 @@ app.viewmodels = app.viewmodels || {};
                             zoom: 11
                         });
 
-                        var request = {
-                            location: currentPos,
-                            radius: 35000,
-                            type: 'museum'
-                        };
+                        var type = document.getElementById('place-type').value.toLowerCase();
+                        var radius = parseInt(document.getElementById('radius').value);
+
+                        if (type != null && radius != null) {
+
+                            var request = {
+                                location: currentPos,
+                                types: [type],
+                                radius: radius
+                            };
+                        }
+
+                        debugger;
+                        console.log(request);
 
                         infowindow = new google.maps.InfoWindow();
-                        var service = new google.maps.places.PlacesService(map);
-                        //var req = makeRequest();
+                        service = new google.maps.places.PlacesService(map);
                         service.nearbySearch(request, callback);
+
                     }
                 });
+            }
+            else {
+                alert('Cannot access navigator!');
             }
 
             //google.maps.event.addDomListener(window, 'load', initialize);
@@ -119,20 +133,21 @@ app.viewmodels = app.viewmodels || {};
             });
 
         },
+        makeRequest: function () {
 
+            this.initialize();
 
-       
+            //var type = document.getElementById('place-type').value.toLowerCase();
+            //var radius = parseInt(document.getElementById('radius').value);
 
-        // TODO: Need fix 
-        //makeRequest: function () {
-        //    var request = {
-        //        location: currentPos,
-        //        radius: 35000,
-        //        type: 'restaurant'
-        //    };
+            //var currentRequest = {
+            //    types: [type],
+            //    radius: radius
+            //};
 
-        //    return request;
-        //},
+            //service = new google.maps.places.PlacesService(map);
+            //service.nearbySearch(currentRequest, callback);
+        },
     });
 
 }(app.viewmodels));
