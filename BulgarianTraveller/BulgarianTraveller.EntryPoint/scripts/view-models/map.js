@@ -40,11 +40,20 @@ function createMarker(place, isVisited) {
 }
 
 
+
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
+
+function onSuccess() {
+    alert('Success');
+}
+
 var app = app || {};
 app.viewmodels = app.viewmodels || {};
 
 (function (scope) {
-    scope.map = {
+    scope.map = kendo.observable({
         initialize: function () {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
@@ -77,6 +86,23 @@ app.viewmodels = app.viewmodels || {};
 
             //google.maps.event.addDomListener(window, 'load', initialize);
         },
+        takeImage: function () {
+            navigator.camera.getPicture(onSuccess, onFail, {
+                quality: 75,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 100,
+                targetHeight: 100,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: true
+            });
+
+        },
+
+
+       
 
         // TODO: Need fix 
         //makeRequest: function () {
@@ -88,6 +114,6 @@ app.viewmodels = app.viewmodels || {};
 
         //    return request;
         //},
-    };
+    });
 
 }(app.viewmodels));
