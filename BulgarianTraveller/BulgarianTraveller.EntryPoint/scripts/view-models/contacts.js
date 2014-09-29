@@ -7,16 +7,9 @@ app.viewmodels = app.viewmodels || {};
 
             var numRegex = /^\d{10}$/;
             var mailRegex = /\S+@\S+\.\S+/;
-
-            console.log('asdf');
             
             var displayName = document.getElementById('contact-name').value;
             var phoneNumber = document.getElementById('contact-number').value;
-
-            //navigator.contacts.create({
-            //    "displayName": displayName,
-            //    "phoneNumbers": phoneNumber
-            //});
 
             if (displayName === null) {
                 alert('Name cannot be empty!');
@@ -52,9 +45,6 @@ app.viewmodels = app.viewmodels || {};
                 contact.save();
                 alert('Contact added successfuly!');
             }
-
-
-
         },
     });
 

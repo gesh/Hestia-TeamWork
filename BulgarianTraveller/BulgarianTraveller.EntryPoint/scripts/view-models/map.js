@@ -51,7 +51,6 @@ app.viewmodels = app.viewmodels || {};
             else {
                 alert('Cannot access navigator!');
             }
-
         },
         takeImage: function () {
             navigator.camera.getPicture(onTakeImageSuccess, onTakeImageFail, {
