@@ -5,7 +5,6 @@
 (function () {
     var app;
 
-
     window.APP = {
         models: {
             map: {
@@ -30,25 +29,28 @@
     };
 
     document.addEventListener('deviceready', function () {
+
         navigator.splashscreen.hide();
 
+        setInterval(deviceConnection, 5000);
+
         app = new kendo.mobile.Application(document.body, { transition: 'slide', skin: 'flat', initial: 'views/map.html' });
-       
+        window.addEventListener("batterylow", batterLowStatus, false);
 
-        setInterval(function() {
-            var networkState = navigator.connection.type;
-            var isConnected = checkConnnection(networkState);
-		   
-            if (!isConnected) {
-                alert('No Connection!');
-            }
-        }, 5000);
-
-        window.addEventListener("batterylow", batterLowStatus	, false);
     }, false);
 
 }());
 
 function batterLowStatus(info) {
     alert("Low battery: " + info.level + " %");
+}
+
+function deviceConnection() {
+
+    var networkState = navigator.connection.type;
+    var isConnected = checkConnnection(networkState);
+   
+    if (!isConnected) {
+        alert('No Connection!');
+    }
 }

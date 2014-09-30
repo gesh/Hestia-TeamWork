@@ -1,13 +1,12 @@
-var app = app || {};
+var app = app || {},
+    numRegex = /^\d{10}$/;
+    mailRegex = /\S+@\S+\.\S+/;
+
 app.viewmodels = app.viewmodels || {};
 
 (function (scope) {
     scope.contacts = kendo.observable({
         addContact: function () {
-
-            var numRegex = /^\d{10}$/;
-            var mailRegex = /\S+@\S+\.\S+/;
-            
             var displayName = document.getElementById('contact-name').value;
             var phoneNumber = document.getElementById('contact-number').value;
 

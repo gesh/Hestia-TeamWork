@@ -1,12 +1,13 @@
-var map;
-var infowindow;
-var currentPos;
-
-var inpuType;
-var inputRadius;
-var currentPlace;
-var service;
-var request = request || {};
+var RED_MARKER = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+    GREEN_MARKER = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+    map,
+    infowindow,
+    currentPos,
+    inpuType,
+    inputRadius,
+    currentPlace,
+    service,
+    request = request || {};
 
 var app = app || {};
 app.viewmodels = app.viewmodels || {};
@@ -44,7 +45,6 @@ app.viewmodels = app.viewmodels || {};
                         infowindow = new google.maps.InfoWindow();
                         service = new google.maps.places.PlacesService(map);
                         service.nearbySearch(request, callback);
-
                     }
                 });
             }
@@ -82,22 +82,20 @@ function createMarker(place, isVisited) {
     });
 
     if (isVisited) {
-        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+        marker.setIcon(GREEN_MARKER);
     } else {
-        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+        marker.setIcon(RED_MARKER);
     }
 
     google.maps.event.addListener(marker, 'click', function () {
         localStorageSave(place);
-        navigator.vibrate(3);
+        navigator.vibrate(10);
         infowindow.setContent(place.name);
         alert("You've visited " + place.name);
         infowindow.open(map, this);
-        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+        marker.setIcon(GREEN_MARKER);
 
     });
-
-
 }
 
 function callback(results, status) {
@@ -105,9 +103,9 @@ function callback(results, status) {
         for (var i = 0; i < results.length; i++) {
 
             currentPlace = results[i];
-            var condition = checkCurrentPlace(currentPlace);
+            var isCurrentPlaceVisited = checkCurrentPlace(currentPlace);
 
-            createMarker(results[i], condition);
+            createMarker(results[i], isCurrentPlaceVisited);
         }
     }
 }
@@ -130,6 +128,15 @@ function checkCurrentPlace(place) {
 }
 
 function localStorageSave(place) {
-    window.localStorage.setItem(place.name, place.name);
+    var date = getDate();
+    window.localStorage.setItem(place.name, date);
 }
 
+function getDate() {
+
+    var date = new Date(),
+        output = document.getElementById( 'output' ),
+        dateString = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear().toString().substr(2,2);
+
+    return dateString;
+}
