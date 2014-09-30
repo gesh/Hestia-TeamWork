@@ -32,7 +32,6 @@ app.viewmodels = app.viewmodels || {};
                 var contact = navigator.contacts.create();
                 contact.displayName = displayName;
 
-
                 // store contact phone numbers in ContactField[]
                 var phoneNumbers = [];
                 phoneNumbers[0] = new ContactField('mobile', phoneNumber, true); // preferred number

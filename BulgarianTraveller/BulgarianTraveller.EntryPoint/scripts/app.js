@@ -34,9 +34,10 @@
 
         setInterval(deviceConnection, 5000);
 
+        shake.startWatch(onShakeDetected);
+
         app = new kendo.mobile.Application(document.body, { transition: 'slide', skin: 'flat', initial: 'views/map.html' });
         window.addEventListener("batterylow", batterLowStatus, false);
-
     }, false);
 
 }());
@@ -53,4 +54,19 @@ function deviceConnection() {
     if (!isConnected) {
         alert('No Connection!');
     }
+}
+
+function onShakeDetected(){
+	showConfirm();
+}
+
+ function showConfirm() {
+	navigator.notification.confirm('Do you really want to exit?', exitFromApp, 'Exit', 
+	'Cancel, OK');
+}
+ 
+function exitFromApp(buttonIndex) {
+	if (buttonIndex == 2){
+		navigator.app.exitApp();
+	}
 }
