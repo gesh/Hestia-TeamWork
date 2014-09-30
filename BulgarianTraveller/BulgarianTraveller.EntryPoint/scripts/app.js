@@ -29,9 +29,28 @@
         
         navigator.splashscreen.hide();
 
+        setInterval(function(){
+
+		   var networkState = navigator.connection.type;
+		   var isConnected = checkConnnection(networkState);
+		   
+		    if (!isConnected) {
+
+	    		alert('No Connection!');
+
+	    	}
+
+		}, 1000);
 
         app = new kendo.mobile.Application(document.body, { transition: 'slide', skin: 'flat', initial: 'views/map.html' });
 
 
     }, false);
+
+    document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
+
+	function onVolumeDownKeyDown() {
+    	app.map.zoom+=0.2;
+	}
+
 }());
