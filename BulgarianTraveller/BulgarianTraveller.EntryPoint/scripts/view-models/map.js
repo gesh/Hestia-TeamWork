@@ -5,16 +5,29 @@ var currentPos;
 var visited = false;
 var inpuType;
 var inputRadius;
+var currentPlace; 
 
+function checkCurrentPlace(place){
+    var result = window.localStorage.getItem(place.name);
+    if (result) {
+        return true;
+    }
+
+    return false;
+}
+
+function localStorageSave(place){
+        window.localStorage.setItem(place.name, place.name);
+}
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            if (results[i].isVisited) {
-                createMarker(results[i], true)
-            } else {
-                createMarker(results[i], false);
-            }
+
+            currentPlace = results[i];
+            var condition = checkCurrentPlace(currentPlace);
+
+            createMarker(results[i], condition);
         }
     }
 }
@@ -26,17 +39,23 @@ function createMarker(place, isVisited) {
                                             position: place.geometry.location
                                         });
 
-    if (visited) {
+    if (isVisited) {
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+    }else{
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
     }
 
     google.maps.event.addListener(marker, 'click', function () {
+        localStorageSave(place);
+        navigator.vibrate(3);
         infowindow.setContent(place.name);
         alert("You've visited " + place.name);
         infowindow.open(map, this);
         marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-        marker.isVisited = true;
+      
     });
+
+   
 }
 
 
