@@ -16,11 +16,11 @@
             authors: {
                     title: 'Authors',
                     ds: new kendo.data.DataSource({
-                                                      data: [
+                        data: [
                             { id: 1, name: 'Georgis', email: 'georgis@abv.bg' },
                             { id: 2, name: 'Ianko', email: 'ianko@abv.bg' }
-                        ]
-                                                  }),
+                              ]
+                        }),
                     alert: function (e) {
                         alert('Send Mail to ' + e.data.name + '\n' + e.data.email);
                     }
@@ -52,7 +52,7 @@ function deviceConnection() {
     var isConnected = checkConnnection(networkState);
    
     if (!isConnected) {
-        alert('No Connection!');
+        alert('No Connection! Please check your internet');
     }
 }
 

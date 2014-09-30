@@ -66,9 +66,11 @@
     <Content Include="kendo\styles\images\wp8_inverseicons.png" />
     <Content Include="kendo\typescript\jquery.d.ts" />
     <Content Include="kendo\typescript\kendo.mobile.d.ts" />
-    <Content Include="scripts\animateSplashScreen.js" />
     <Content Include="scripts\app.js" />
     <Content Include="scripts\connection-status.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="scripts\shake.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\view-models\contacts.js" />

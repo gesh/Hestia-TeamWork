@@ -55,12 +55,10 @@ app.viewmodels = app.viewmodels || {};
         takeImage: function () {
             navigator.camera.getPicture(onTakeImageSuccess, onTakeImageFail, {
                 quality: 75,
-                destinationType: Camera.DestinationType.DATA_URL,
+                destinationType: Camera.DestinationType.FILE_URI,
                 sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit: true,
-                encodingType: Camera.EncodingType.JPEG,
-                targetWidth: 100,
-                targetHeight: 100,
+                targetWidth: 500,
+                targetHeight: 500,
                 popoverOptions: CameraPopoverOptions,
                 saveToPhotoAlbum: true
             });
@@ -91,7 +89,7 @@ function createMarker(place, isVisited) {
         localStorageSave(place);
         navigator.vibrate(10);
         infowindow.setContent(place.name);
-        alert("You've visited " + place.name);
+        alert("You have visited \n" + place.name);
         infowindow.open(map, this);
         marker.setIcon(GREEN_MARKER);
 
@@ -111,11 +109,11 @@ function callback(results, status) {
 }
 
 function onTakeImageFail(message) {
-    alert('Failed because: ' + message);
+    alert('Capturing image failed because: ' + message);
 }
 
 function onTakeImageSuccess() {
-    alert('Done!');
+    alert('Image saved to gallery!');
 }
 
 function checkCurrentPlace(place) {
