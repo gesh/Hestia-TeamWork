@@ -25,6 +25,10 @@
         }
     };
 
+	function batterLowStatus(info) {
+		alert("Low battery: " + info.level + " %");
+	}
+
     document.addEventListener('deviceready', function () {
         
         navigator.splashscreen.hide();
@@ -39,18 +43,12 @@
 	    		alert('No Connection!');
 
 	    	}
-
+	    	
 		}, 1000);
+
+		window.addEventListener("batterylow", batterLowStatus	, false);
 
         app = new kendo.mobile.Application(document.body, { transition: 'slide', skin: 'flat', initial: 'views/map.html' });
 
-
-    }, false);
-
-    document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
-
-	function onVolumeDownKeyDown() {
-    	app.map.zoom+=0.2;
-	}
-
+    }, false);    
 }());

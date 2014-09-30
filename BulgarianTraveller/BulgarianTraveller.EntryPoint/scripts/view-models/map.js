@@ -102,10 +102,7 @@ app.viewmodels = app.viewmodels || {};
                                 radius: radius
                             };
                         }
-
-                        debugger;
-                        console.log(request);
-
+                        
                         infowindow = new google.maps.InfoWindow();
                         service = new google.maps.places.PlacesService(map);
                         service.nearbySearch(request, callback);
